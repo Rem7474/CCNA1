@@ -1,0 +1,110 @@
+/* Styles généraux */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+header, footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+main {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+section {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+h2 {
+    color: #333;
+}
+
+/* Styles pour le quizz */
+#quizz {
+    border: 1px solid #ccc;
+    padding: 20px;
+    max-width: 900px;
+}
+
+#question p {
+    margin-bottom: 20px;
+}
+
+.reponses .reponse {
+    margin-bottom: 10px;
+    display: flex;
+}
+
+.reponses label {
+    display: block;
+}
+
+button {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #555;
+}
+
+img {
+    max-width: 100%;
+    margin-bottom: 20px;
+}
+
+/* Styles pour la section des corrections */
+#corrections {
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+#correct-answers p {
+    margin-bottom: 10px;
+}
+
+#correct-answers span {
+    font-weight: bold;
+    margin-right: 5px;
+}
+
+/* Styles pour les boutons de choix de question */
+#next, #reponse {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+#next:hover, #reponse:hover {
+    background-color: #555;
+}
+
+#corrections, #questions {
+    display: none;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
