@@ -85,7 +85,7 @@ function setupQuiz() {
     // Ajouter un formulaire pour choisir le nombre de questions
     var numQuestionsForm = document.createElement("form");
     numQuestionsForm.innerHTML = "<label for='numQuestions'>Nombre de questions :</label>";
-    numQuestionsForm.innerHTML += "<input type='number' id='numQuestions' min='1' max='168' value='10'>";
+    numQuestionsForm.innerHTML += "<input type='number' id='numQuestions' min='1' max='130' value='10'>";
     numQuestionsForm.innerHTML += "<button type='submit'>Commencer le quizz</button>";
     numQuestionsForm.addEventListener("submit", startQuiz);
     document.getElementById("questions").style.display = "none";
