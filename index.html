@@ -1,29 +1,57 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <!-- Site de révision du ccna2 avec une banque de question dans un fichier csv, gestion des questions avec javascript-->
     <title>Révision CCNA1</title>
     <meta charset="utf-8">
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <script src="script.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Application de révision pour le cours CCNA1">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="alternate icon" href="favicon.ico">
+    
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <script src="script.js" defer></script>
 </head>
 <body>
     <header>
         <h1>Révision CCNA1</h1>
     </header>
     <main>
+        <section id="setup">
+        <div id="setup-card">
+            <h2>Configurez votre quiz CCNA1</h2>
+                <form id="quiz-setup-form">
+                    <div class="form-group">
+                        <label for="numQuestions">Nombre de questions :</label>
+                        <input type="number" id="numQuestions" min="1" max="130" value="20" required>
+                    </div>
+                    <button type="submit" class="btn-primary">Commencer le quiz</button>
+                </form>
+            </div>
+        </section>
         <section id="questions">
-            <h2>Quizz</h2>
-            <div id="quizz"></div>
+            <div class="quiz-card">
+                <div id="progress-container">
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progress"></div>
+                    </div>
+                </div>
+                <div id="quizz"></div>
+            </div>
         </section>
         <section id="corrections">
-            <h2>Réponses correctes</h2>
-            <div id="correct-answers"></div>
+            <div class="quiz-card">
+                <h2>❌ Réponses correctes</h2>
+                <div id="correct-answers"></div>
+            </div>
         </section>
     </main>
-    <footer>
-        <p>Site réalisé par Rémy Cuvelier - 2024</p>
+        <footer>
+        <p>Site réalisé par Rémy Cuvelier - 2025 | Quiz CCNA1</p>
     </footer>
 </body>
 </html>

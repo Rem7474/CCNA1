@@ -1,3 +1,363 @@
+// Application de quiz modernisée — charge soit JSON (si présent) soit parse le CSV `ExamCisco1.csv`
+let allQuestions = [];
+let shuffledQuestions = [];
+let currentQuestionIndex = 0;
+let score = 0;
+
+// Initialisation au chargement de la page
+document.addEventListener("DOMContentLoaded", init);
+
+async function init() {
+    await loadQuestions();
+    setupEventListeners();
+}
+
+// Try JSON first, fallback to CSV parsing (ISO-8859-1)
+async function loadQuestions() {
+    // Try example JSON files (prefer full converted one if present)
+    const jsonCandidates = [
+        'exemple/questions_from_csv.json',
+        'exemple/questions.json'
+    ];
+    for (const path of jsonCandidates) {
+        try {
+            const res = await fetch(path);
+            if (res.ok) {
+                const data = await res.json();
+                if (data && Array.isArray(data.questions)) {
+                    allQuestions = data.questions;
+                    postLoadSetup();
+                    return;
+                }
+            }
+        } catch (e) {
+            // try next
+        }
+    }
+
+    // Fallback: fetch CSV and parse it client-side (handles ISO-8859-1)
+    try {
+        const res = await fetch('ExamCisco1.csv');
+        if (!res.ok) throw new Error('CSV not reachable');
+        const buf = await res.arrayBuffer();
+        const decoder = new TextDecoder('iso-8859-1');
+        const text = decoder.decode(buf);
+        parseCSVText(text);
+        postLoadSetup();
+        return;
+    } catch (err) {
+        console.error('Erreur lors du chargement CSV:', err);
+        alert('Impossible de charger les questions (ni JSON ni CSV). Voir console.');
+    }
+}
+
+function postLoadSetup() {
+    // update maximum allowed value for the question count input if present
+    const numInput = document.getElementById('numQuestions');
+    if (numInput) {
+        numInput.max = allQuestions.length;
+        // if default value is greater than available questions, cap it
+        if (parseInt(numInput.value, 10) > allQuestions.length) {
+            numInput.value = Math.min(20, allQuestions.length);
+        }
+    }
+}
+
+function parseCSVText(csvData) {
+    // Split into lines and parse semicolon-separated values
+    const lines = csvData.split(/\r?\n/).filter(l => l.trim().length > 0);
+    const questions = [];
+    let id = 1;
+    for (const line of lines) {
+        const cols = line.split(';');
+        // Defensive: ensure at least the basic columns exist
+        const questionText = (cols[0] || '').trim();
+        const typeField = (cols[1] || '1').trim();
+        const nbReponses = parseInt(cols[2] || '0', 10) || 0;
+        const nbReponsesCorrectes = parseInt(cols[3] || '0', 10) || 0;
+
+        const answers = [];
+        for (let i = 0; i < nbReponses; i++) {
+            answers.push((cols[4 + i] || '').trim());
+        }
+
+        const correctIndices = [];
+        for (let j = 0; j < nbReponsesCorrectes; j++) {
+            const idxStr = cols[4 + nbReponses + j];
+            if (idxStr && idxStr.trim() !== '') {
+                const v = parseInt(idxStr, 10);
+                if (!Number.isNaN(v)) correctIndices.push(v - 1); // CSV is 1-based
+            }
+        }
+
+        const imageField = cols[4 + nbReponses + nbReponsesCorrectes];
+        const image = (imageField && imageField.trim() !== '') ? imageField.trim() : null;
+
+        questions.push({
+            id: id,
+            question: questionText,
+            type: typeField === '2' ? 'image' : 'text',
+            answers: answers,
+            correctAnswers: correctIndices,
+            image: image
+        });
+        id++;
+    }
+    allQuestions = questions;
+}
+
+// Configuration des écouteurs d'événements
+function setupEventListeners() {
+    const form = document.getElementById('quiz-setup-form');
+    if (form) {
+        form.addEventListener('submit', startQuiz);
+    }
+}
+
+// Démarrer le quiz
+function startQuiz(event) {
+    event.preventDefault();
+    
+    const numQuestions = parseInt(document.getElementById('numQuestions').value);
+    
+    // Validation
+    if (numQuestions < 1 || numQuestions > allQuestions.length) {
+        alert(`Veuillez choisir entre 1 et ${allQuestions.length} questions.`);
+        return;
+    }
+    
+    // Réinitialiser l'état
+    currentQuestionIndex = 0;
+    score = 0;
+    
+    // Mélanger et sélectionner les questions
+    shuffledQuestions = shuffleArray([...allQuestions]).slice(0, numQuestions);
+    
+    // Afficher la section quiz et masquer la configuration
+    document.getElementById('setup').style.display = 'none';
+    document.getElementById('questions').style.display = 'block';
+    
+    // Afficher la première question
+    displayQuestion();
+}
+
+// Mélanger un tableau (algorithme Fisher-Yates)
+function shuffleArray(array) {
+    const shuffled = [...array];
+    for (let i = shuffled.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    }
+    return shuffled;
+}
+
+// Afficher la question actuelle
+function displayQuestion() {
+    const question = shuffledQuestions[currentQuestionIndex];
+    const quizContainer = document.getElementById('quizz');
+    
+    // Mise à jour de la barre de progression
+    updateProgress();
+    
+    // Construire le HTML de la question
+    const html = `
+        <div class="question-header">
+            <span class="question-number">Question ${currentQuestionIndex + 1} / ${shuffledQuestions.length}</span>
+        </div>
+        
+        <div class="question-text">
+            ${question.question}
+        </div>
+        
+        ${question.image ? `<img src="${question.image}" alt="Question image">` : ''}
+        
+        <div class="answers-container">
+            ${question.answers.map((answer, index) => `
+                <div class="answer-option" data-index="${index}">
+                    <input 
+                        type="${question.correctAnswers.length === 1 ? 'radio' : 'checkbox'}" 
+                        name="answer" 
+                        id="answer-${index}" 
+                        value="${index}">
+                    <label for="answer-${index}">${answer}</label>
+                </div>
+            `).join('')}
+        </div>
+        
+        <div class="button-group">
+            <button class="btn-primary" onclick="checkAnswer()">Valider</button>
+        </div>
+    `;
+    
+    quizContainer.innerHTML = html;
+    
+    // Ajouter les événements de clic après le rendu
+    attachAnswerClickEvents();
+}
+
+// Attacher les événements de clic sur les réponses
+function attachAnswerClickEvents() {
+    const answerOptions = document.querySelectorAll('.answer-option');
+    const question = shuffledQuestions[currentQuestionIndex];
+    const isMultiple = question.correctAnswers.length > 1;
+    
+    answerOptions.forEach((option) => {
+        option.addEventListener('click', function(e) {
+            // Ne pas traiter si on clique directement sur l'input ou le label
+            if (e.target.tagName === 'INPUT' || e.target.tagName === 'LABEL') {
+                return;
+            }
+            
+            const index = this.dataset.index;
+            const input = document.getElementById(`answer-${index}`);
+            
+            if (isMultiple) {
+                // Checkbox - toggle
+                input.checked = !input.checked;
+            } else {
+                // Radio button - sélectionner celui-ci
+                input.checked = true;
+            }
+        });
+    });
+}
+
+// Mettre à jour la barre de progression
+function updateProgress() {
+    const progress = document.getElementById('progress');
+    const percentage = ((currentQuestionIndex) / shuffledQuestions.length) * 100;
+    progress.style.width = `${percentage}%`;
+}
+
+// Vérifier la réponse
+function checkAnswer() {
+    const question = shuffledQuestions[currentQuestionIndex];
+    const selectedAnswers = Array.from(document.querySelectorAll('input[name="answer"]:checked'))
+        .map(input => parseInt(input.value));
+    
+    // Vérifier si des réponses ont été sélectionnées
+    if (selectedAnswers.length === 0) {
+        alert('Veuillez sélectionner au moins une réponse.');
+        return;
+    }
+    
+    // Vérifier si la réponse est correcte
+    const isCorrect = arraysEqual(selectedAnswers.sort(), question.correctAnswers.sort());
+    
+    if (isCorrect) {
+        score++;
+        nextQuestion();
+    } else {
+        showCorrectAnswers(question);
+    }
+}
+
+// Comparer deux tableaux
+function arraysEqual(arr1, arr2) {
+    if (arr1.length !== arr2.length) return false;
+    return arr1.every((value, index) => value === arr2[index]);
+}
+
+// Afficher les bonnes réponses
+function showCorrectAnswers(question) {
+    const correctionsSection = document.getElementById('corrections');
+    const correctAnswersDiv = document.getElementById('correct-answers');
+    
+    const correctAnswersText = question.correctAnswers
+        .map(index => question.answers[index])
+        .join(', ');
+    
+    correctAnswersDiv.innerHTML = `
+        <p><strong>Les bonnes réponses sont :</strong></p>
+        <p>${correctAnswersText}</p>
+        <div class="button-group">
+            <button class="btn-secondary" onclick="nextQuestion()">Continuer</button>
+        </div>
+    `;
+    
+    correctionsSection.style.display = 'block';
+    document.getElementById('questions').style.display = 'none';
+}
+
+// Passer à la question suivante
+function nextQuestion() {
+    // Masquer les corrections
+    document.getElementById('corrections').style.display = 'none';
+    
+    // Passer à la question suivante
+    currentQuestionIndex++;
+    
+    // Vérifier si le quiz est terminé
+    if (currentQuestionIndex >= shuffledQuestions.length) {
+        // S'assurer que la section questions est visible pour afficher les résultats
+        document.getElementById('questions').style.display = 'block';
+        showResults();
+    } else {
+        // Afficher la prochaine question
+        document.getElementById('questions').style.display = 'block';
+        displayQuestion();
+    }
+}
+
+// Afficher les résultats finaux
+function showResults() {
+    const quizContainer = document.getElementById('quizz');
+    const percentage = ((score / shuffledQuestions.length) * 100).toFixed(1);
+    
+    // Déterminer le message en fonction du score
+    let message = '';
+    let emoji = '';
+    if (percentage >= 90) {
+        message = 'Excellent ! 🎉';
+        emoji = '🏆';
+    } else if (percentage >= 75) {
+        message = 'Très bien ! 👏';
+        emoji = '⭐';
+    } else if (percentage >= 60) {
+        message = 'Bien joué ! 👍';
+        emoji = '✅';
+    } else {
+        message = 'Continuez à réviser ! 📚';
+        emoji = '💪';
+    }
+    
+    const html = `
+        <div class="score-display">
+            <div class="score-value">${emoji}</div>
+            <h2 style="color: var(--text-primary); margin-bottom: 2rem;">${message}</h2>
+            <div class="score-label">Votre score</div>
+            <div class="score-value">${score} / ${shuffledQuestions.length}</div>
+            <div class="percentage" style="margin-top: 1rem; color: var(--primary-color);">${percentage}%</div>
+            <div class="button-group" style="margin-top: 3rem;">
+                <button class="btn-primary" onclick="restartQuiz()">Recommencer</button>
+            </div>
+        </div>
+    `;
+    
+    quizContainer.innerHTML = html;
+    
+    // Mettre à jour la barre de progression à 100%
+    const progress = document.getElementById('progress');
+    if (progress) {
+        progress.style.width = '100%';
+    }
+}
+
+// Recommencer le quiz
+function restartQuiz() {
+    // Réinitialiser
+    currentQuestionIndex = 0;
+    score = 0;
+    shuffledQuestions = [];
+    
+    // Afficher la page de configuration
+    document.getElementById('setup').style.display = 'block';
+    document.getElementById('questions').style.display = 'none';
+    document.getElementById('corrections').style.display = 'none';
+    
+    // Réinitialiser la barre de progression
+    document.getElementById('progress').style.width = '0%';
+}
 //utilise un fichier csv contenant les questions et réponse du quizz d'entrainement au ccna2
 //structure du fichier : question;type de question(1 pour texte 2 pour image); nb de réponses; nb réponse correcte; réponse1; réponse2; réponse3; réponse4; réponse correcte1; réponse correcte2; réponse correcte3; réponse correcte4; lien de l'image
 //affichage des questions et réponses dans une page html
