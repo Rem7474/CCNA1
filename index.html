@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <title>Révision CCNA1</title>
+    <title>Révision CCNA1 - Certification Stormshield Network Expert</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Application de révision pour le cours CCNA1">
+    <meta name="description" content="Application de révision pour la certification CCNA1 (Certified Stormshield Network Expert)">
     
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
@@ -18,16 +18,19 @@
 </head>
 <body>
     <header>
-        <h1>Révision CCNA1</h1>
+        <h1>🛡️ Révision CCNA1</h1>
     </header>
     <main>
         <section id="setup">
-        <div id="setup-card">
-            <h2>Configurez votre quiz CCNA1</h2>
+            <div id="setup-card">
+                <h2>Configurez votre quiz</h2>
                 <form id="quiz-setup-form">
                     <div class="form-group">
                         <label for="numQuestions">Nombre de questions :</label>
-                        <input type="number" id="numQuestions" min="1" max="130" value="20" required>
+                                                <div style="display:flex; gap:0.75rem; align-items:center">
+                                                    <input type="number" id="numQuestions" min="1" max="130" value="20" required>
+                                                    <div id="questions-badge" class="questions-badge" title="Nombre total de questions">—</div>
+                                                </div>
                     </div>
                     <button type="submit" class="btn-primary">Commencer le quiz</button>
                 </form>
@@ -50,8 +53,8 @@
             </div>
         </section>
     </main>
-        <footer>
-        <p>Site réalisé par Rémy Cuvelier - 2025 | Quiz CCNA1</p>
+    <footer>
+        <p>Site réalisé par Rémy Cuvelier - 2025 | Certification CCNA1</p>
     </footer>
 </body>
 </html>
