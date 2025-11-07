@@ -3,11 +3,13 @@ let allQuestions = [];
 let shuffledQuestions = [];
 let currentQuestionIndex = 0;
 let score = 0;
+let discoveredModules = [];
 
 // Initialisation au chargement de la page
 document.addEventListener("DOMContentLoaded", init);
 
 async function init() {
+    await populateSourceSelect();
     await loadQuestions();
     setNumQuestionsMax();
     setupEventListeners();
@@ -33,23 +35,9 @@ async function loadQuestions() {
 }
 
 function getSourcePath(source) {
-    switch (source) {
-        case 'modules-1-3':
-            return 'data/modules-1-3.json';
-        case 'modules-4-7':
-            return 'data/modules-4-7.json';
-        case 'modules-8-10':
-            return 'data/modules-8-10.json';
-        case 'modules-11-13':
-            return 'data/modules-11-13.json';
-        case 'modules-14-15':
-            return 'data/modules-14-15.json';
-        case 'modules-16-17':
-            return 'data/modules-16-17.json';
-        case 'final':
-        default:
-            return 'questions.json';
-    }
+    if (source === 'final') return 'data/final.json';
+    const match = discoveredModules.find(m => m.value === source);
+    return match ? match.path : 'data/final.json';
 }
 
 function setNumQuestionsMax() {
@@ -330,4 +318,40 @@ function restartQuiz() {
     
     // Réinitialiser la barre de progression
     document.getElementById('progress').style.width = '0%';
+}
+
+async function populateSourceSelect() {
+    const select = document.getElementById('questionSource');
+    const hint = document.getElementById('source-hint');
+    if (!select) return;
+    try {
+        const resp = await fetch('data/modules-manifest.json', { cache: 'no-cache' });
+        if (!resp.ok) throw new Error('Manifest introuvable');
+        const manifest = await resp.json();
+        discoveredModules = manifest.map(entry => ({
+            label: entry.label || entry.path,
+            path: entry.path,
+            value: (entry.path.split('/').pop() || '').replace('.json','')
+        }));
+        // Ajouter options dynamiques
+        for (const mod of discoveredModules) {
+            // éviter les doublons si l'option existe déjà
+            if (select.querySelector(`option[value='${mod.value}']`)) continue;
+            const opt = document.createElement('option');
+            opt.value = mod.value;
+            opt.textContent = mod.label;
+            select.appendChild(opt);
+        }
+        // Sélection par défaut: 'final' s'il existe, sinon première option
+        const hasFinal = !!select.querySelector("option[value='final']");
+        if (hasFinal) {
+            select.value = 'final';
+        } else if (select.options.length > 0) {
+            select.selectedIndex = 0;
+        }
+        if (hint) hint.textContent = `${discoveredModules.length} modules détectés`;
+    } catch (e) {
+        console.warn('Échec de la découverte des modules:', e);
+        if (hint) hint.textContent = 'Aucun module détecté';
+    }
 }

@@ -27,15 +27,8 @@
                 <form id="quiz-setup-form">
                     <div class="form-group">
                         <label for="questionSource">Source des questions :</label>
-                        <select id="questionSource">
-                            <option value="final" selected>Examen final</option>
-                            <option value="modules-1-3">Modules 1-3</option>
-                            <option value="modules-4-7">Modules 4-7</option>
-                            <option value="modules-8-10">Modules 8-10</option>
-                            <option value="modules-11-13">Modules 11-13</option>
-                            <option value="modules-14-15">Modules 14-15</option>
-                            <option value="modules-16-17">Modules 16-17</option>
-                        </select>
+                        <select id="questionSource" data-dynamic-modules></select>
+                        <small style="display:block;margin-top:0.5rem;color:var(--text-secondary);" id="source-hint">Modules détectés automatiquement</small>
                     </div>
                     <div class="form-group">
                         <label for="numQuestions">Nombre de questions :</label>
