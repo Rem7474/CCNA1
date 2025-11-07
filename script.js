@@ -13,23 +13,43 @@ async function init() {
     setupEventListeners();
 }
 
-// Charger les questions depuis le fichier JSON
+// Charger les questions depuis le fichier JSON sélectionné
 async function loadQuestions() {
-    // Load questions from the single canonical JSON file in this repo
+    const sourceSelect = document.getElementById('questionSource');
+    const source = sourceSelect ? sourceSelect.value : 'final';
+    const path = getSourcePath(source);
     try {
-        const response = await fetch('questions.json');
+        const response = await fetch(path, { cache: 'no-cache' });
         if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
         const data = await response.json();
-        // Support both { questions: [...] } and array directly
         allQuestions = Array.isArray(data) ? data : (data.questions || []);
-        console.log(`Loaded ${allQuestions.length} questions from questions.json`);
+        console.log(`Loaded ${allQuestions.length} questions from ${path}`);
         return;
     } catch (e) {
-        console.error('Could not load questions.json:', e);
+        console.error(`Could not load ${path}:`, e);
     }
-
     console.error('Aucun fichier de questions accessible.');
     alert('Erreur lors du chargement des questions. Veuillez vous assurer que le fichier JSON est présent.');
+}
+
+function getSourcePath(source) {
+    switch (source) {
+        case 'modules-1-3':
+            return 'data/modules-1-3.json';
+        case 'modules-4-7':
+            return 'data/modules-4-7.json';
+        case 'modules-8-10':
+            return 'data/modules-8-10.json';
+        case 'modules-11-13':
+            return 'data/modules-11-13.json';
+        case 'modules-14-15':
+            return 'data/modules-14-15.json';
+        case 'modules-16-17':
+            return 'data/modules-16-17.json';
+        case 'final':
+        default:
+            return 'questions.json';
+    }
 }
 
 function setNumQuestionsMax() {
@@ -57,6 +77,13 @@ function setupEventListeners() {
     const form = document.getElementById('quiz-setup-form');
     if (form) {
         form.addEventListener('submit', startQuiz);
+    }
+    const sourceSelect = document.getElementById('questionSource');
+    if (sourceSelect) {
+        sourceSelect.addEventListener('change', async () => {
+            await loadQuestions();
+            setNumQuestionsMax();
+        });
     }
 }
 
