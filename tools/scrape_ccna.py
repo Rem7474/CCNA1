@@ -128,6 +128,11 @@ def parse_qa_from_container(container):
     for q_p in anchors:
         strong = q_p.find('strong')
         question_text = strong.get_text(" ", strip=True) if strong else q_p.get_text(" ", strip=True)
+        
+        # Remove question numbering prefix (e.g., "1.", "2.", "Question 1", etc.)
+        question_text = re.sub(r"^\s*\d+\.\s*", "", question_text)
+        question_text = re.sub(r"^Question\s*\d+\s*[:.–-]?\s*", "", question_text, flags=re.IGNORECASE)
+        question_text = question_text.strip()
 
         # Check first if image is in the same tag as the question (e.g., <p><strong>Q</strong><br><img></p>)
         image_url = None

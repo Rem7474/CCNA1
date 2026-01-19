@@ -1,6 +1,6 @@
 [
   {
-    "question": "1. Quel facteur détermine la taille de la fenêtre TCP ?",
+    "question": "Quel facteur détermine la taille de la fenêtre TCP ?",
     "answers": [
       "La quantité de données à transmettre",
       "Le nombre de services inclus dans le segment TCP",
@@ -15,7 +15,7 @@
     "id": 1
   },
   {
-    "question": "2. Que fait un client lorsqu’il doit envoyer des datagrammes UDP ?",
+    "question": "Que fait un client lorsqu’il doit envoyer des datagrammes UDP ?",
     "answers": [
       "Il envoie une connexion en trois étapes simplifiée au serveur.",
       "Il envoie uniquement les datagrammes.",
@@ -30,7 +30,7 @@
     "id": 2
   },
   {
-    "question": "3. Quels sont les deux rôles de la couche de transport dans la communication de données sur un réseau? (Choisissez deux réponses.)",
+    "question": "Quels sont les deux rôles de la couche de transport dans la communication de données sur un réseau? (Choisissez deux réponses.)",
     "answers": [
       "effectuer une vérification cyclique de la redondance sur la trame pour détecter les erreurs",
       "Le suivi des flux de communication entre les applications sur les hôtes source et de destination",
@@ -47,7 +47,7 @@
     "id": 3
   },
   {
-    "question": "4. Quelles informations importantes sont ajoutées à l’en-tête de la couche transport TCP/IP pour garantir la communication et la connectivité avec un périphérique de réseau distant ?",
+    "question": "Quelles informations importantes sont ajoutées à l’en-tête de la couche transport TCP/IP pour garantir la communication et la connectivité avec un périphérique de réseau distant ?",
     "answers": [
       "Les adresses réseau logiques de destination et source",
       "La synchronisation",
@@ -62,7 +62,7 @@
     "id": 4
   },
   {
-    "question": "5. Quelles sont les deux caractéristiques associées aux sessions UDP ? (Choisissez deux propositions.)",
+    "question": "Quelles sont les deux caractéristiques associées aux sessions UDP ? (Choisissez deux propositions.)",
     "answers": [
       "Les périphériques de destination reconstituent les messages et les transmettent à une application.",
       "Les segments de données sans accusé de réception sont retransmis.",
@@ -79,7 +79,7 @@
     "id": 5
   },
   {
-    "question": "7. Quel indicateur de l’en-tête TCP est utilisé dans une réponse entre un segment FIN reçu pour établir une connectivité entre deux périphériques réseau ?",
+    "question": "Quel indicateur de l’en-tête TCP est utilisé dans une réponse entre un segment FIN reçu pour établir une connectivité entre deux périphériques réseau ?",
     "answers": [
       "RST",
       "SYN",
@@ -94,7 +94,7 @@
     "id": 6
   },
   {
-    "question": "8. Quel protocole ou service utilise UDP pour une communication client à serveur et TCP pour la communication serveur à serveur?",
+    "question": "Quel protocole ou service utilise UDP pour une communication client à serveur et TCP pour la communication serveur à serveur?",
     "answers": [
       "DNS",
       "HTTP",
@@ -109,7 +109,7 @@
     "id": 7
   },
   {
-    "question": "9. Quels sont les trois protocoles de couche application qui utilisent le protocole TCP ? (Choisissez trois propositions.)",
+    "question": "Quels sont les trois protocoles de couche application qui utilisent le protocole TCP ? (Choisissez trois propositions.)",
     "answers": [
       "SMTP",
       "SNMP",
@@ -128,7 +128,7 @@
     "id": 8
   },
   {
-    "question": "10. Quelles sont les affirmations qui caractérisent UDP ? (Choisissez trois propositions.)",
+    "question": "Quelles sont les affirmations qui caractérisent UDP ? (Choisissez trois propositions.)",
     "answers": [
       "UDP repose sur des protocoles de couche application, pour les procédures de détection d’erreurs.",
       "UDP offre des mécanismes perfectionnés de contrôle de flux.",
@@ -147,7 +147,7 @@
     "id": 9
   },
   {
-    "question": "11. Quels sont les deux champs inclus dans l’en-tête TCP mais pas dans l’en-tête UDP? (Choisissez deux réponses.)",
+    "question": "Quels sont les deux champs inclus dans l’en-tête TCP mais pas dans l’en-tête UDP? (Choisissez deux réponses.)",
     "answers": [
       "Somme de contrôle",
       "Un port de destination",
@@ -164,7 +164,7 @@
     "id": 10
   },
   {
-    "question": "12. Quel champ de l’en-tête TCP indique l’état du processus de la connexion TCP en trois étapes",
+    "question": "Quel champ de l’en-tête TCP indique l’état du processus de la connexion TCP en trois étapes",
     "answers": [
       "RÉSERVÉ",
       "somme de contrôle",
@@ -179,7 +179,7 @@
     "id": 11
   },
   {
-    "question": "13. Pourquoi le protocole HTTP utilise le protocole TCP comme protocole de couche transport ?",
+    "question": "Pourquoi le protocole HTTP utilise le protocole TCP comme protocole de couche transport ?",
     "answers": [
       "Pour garantir la vitesse de téléchargement la plus rapide possible",
       "Parce que HTTP nécessite un acheminement fiable",
@@ -194,7 +194,7 @@
     "id": 12
   },
   {
-    "question": "14. Quelles sont les deux situations dans lesquelles le protocole de transport UDP est préférable au protocole TCP ? (Choisissez deux propositions.)",
+    "question": "Quelles sont les deux situations dans lesquelles le protocole de transport UDP est préférable au protocole TCP ? (Choisissez deux propositions.)",
     "answers": [
       "Lorsque les applications doivent garantir qu’un paquet arrive intact, dans l’ordre et non dupliqué",
       "Lorsqu’une surcharge de livraison ne constitue pas un problème",
@@ -211,7 +211,7 @@
     "id": 13
   },
   {
-    "question": "15. Quels sont les trois énoncés qui décrivent un message de détection DHCP ? (Choisissez trois réponses.)",
+    "question": "Quels sont les trois énoncés qui décrivent un message de détection DHCP ? (Choisissez trois réponses.)",
     "answers": [
       "Le message provient d’un serveur proposant une adresse IP.",
       "L’adresse source MAC se compose de 48 signaux (FF-FF-FF-FF-FF-FF).",
@@ -230,7 +230,7 @@
     "id": 14
   },
   {
-    "question": "16. Quels sont les deux protocoles que les périphériques peuvent utiliser dans le processus d’envoi d’e-mails ? (Choisissez deux réponses.)",
+    "question": "Quels sont les deux protocoles que les périphériques peuvent utiliser dans le processus d’envoi d’e-mails ? (Choisissez deux réponses.)",
     "answers": [
       "IMAP",
       "POP",
@@ -248,7 +248,7 @@
     "id": 15
   },
   {
-    "question": "17. Laquelle de ces propositions est vraie à propos du protocole SMB ?",
+    "question": "Laquelle de ces propositions est vraie à propos du protocole SMB ?",
     "answers": [
       "SMB utilise le protocole FTP pour la communication.",
       "Les différents types de message SMB ont un format différent.",
@@ -263,7 +263,7 @@
     "id": 16
   },
   {
-    "question": "18. À quoi sert le message GET HTTP ?",
+    "question": "À quoi sert le message GET HTTP ?",
     "answers": [
       "À récupérer sur un client les e-mails d’un serveur de messagerie à l’aide du port TCP 110",
       "À envoyer des informations d’erreur depuis un serveur web vers un client web",
@@ -278,7 +278,7 @@
     "id": 17
   },
   {
-    "question": "19. Quelle couche OSI sert d’interface entre les applications utilisées pour communiquer et le réseau sous-jacent sur lequel les messages sont transmis ?",
+    "question": "Quelle couche OSI sert d’interface entre les applications utilisées pour communiquer et le réseau sous-jacent sur lequel les messages sont transmis ?",
     "answers": [
       "application",
       "présentation",
@@ -293,7 +293,7 @@
     "id": 18
   },
   {
-    "question": "20. Quel modèle de mise en réseau est utilisé lorsqu’un auteur charge un chapitre d’un ouvrage sur le serveur de fichiers d’une maison d’édition ?",
+    "question": "Quel modèle de mise en réseau est utilisé lorsqu’un auteur charge un chapitre d’un ouvrage sur le serveur de fichiers d’une maison d’édition ?",
     "answers": [
       "P2P (peer-to-peer)",
       "Client/Serveur",
@@ -308,7 +308,7 @@
     "id": 19
   },
   {
-    "question": "21. Quel protocole commun est utilisé avec des applications peer-to-peer, telles que WireShare, Bearshare et Shareaza ?",
+    "question": "Quel protocole commun est utilisé avec des applications peer-to-peer, telles que WireShare, Bearshare et Shareaza ?",
     "answers": [
       "Ethernet",
       "POP",
@@ -323,7 +323,7 @@
     "id": 20
   },
   {
-    "question": "22. Quelle est l’une des principales caractéristiques du modèle de réseau peer-to-peer ?",
+    "question": "Quelle est l’une des principales caractéristiques du modèle de réseau peer-to-peer ?",
     "answers": [
       "Partage des ressources sans serveur dédié",
       "Impression réseau à l’aide d’un serveur d’impression",
@@ -338,7 +338,7 @@
     "id": 21
   },
   {
-    "question": "23. La couche application du modèle TCP/IP remplit les fonctions de trois couches supérieures du modèle OSI. Lesquelles ? (Choisissez trois propositions.)",
+    "question": "La couche application du modèle TCP/IP remplit les fonctions de trois couches supérieures du modèle OSI. Lesquelles ? (Choisissez trois propositions.)",
     "answers": [
       "Application",
       "Réseau",
@@ -358,7 +358,7 @@
     "id": 22
   },
   {
-    "question": "24. Parmi les propositions suivantes, laquelle est un exemple de communication réseau qui utilise le modèle client-serveur ?",
+    "question": "Parmi les propositions suivantes, laquelle est un exemple de communication réseau qui utilise le modèle client-serveur ?",
     "answers": [
       "Une station de travail lance une requête DNS lorsque l’utilisateur tape www.cisco.com dans la barre d’adresse d’un navigateur Web.",
       "Un utilisateur utilise eMule pour télécharger un fichier partagé par un ami une fois l’emplacement du fichier déterminé.",
@@ -373,7 +373,7 @@
     "id": 23
   },
   {
-    "question": "25. Quel est l’un des avantages du protocole SMB par rapport au protocole FTP ?",
+    "question": "Quel est l’un des avantages du protocole SMB par rapport au protocole FTP ?",
     "answers": [
       "Seul SMB permet de transférer des données dans les deux directions.",
       "Seul SMB établit deux connexions simultanées avec le client, ce qui rend le transfert de données plus rapide.",
@@ -388,7 +388,7 @@
     "id": 24
   },
   {
-    "question": "26. Quel protocole de couche application utilise les types de messages GET, PUT et POST ?",
+    "question": "Quel protocole de couche application utilise les types de messages GET, PUT et POST ?",
     "answers": [
       "DNS",
       "HTTP",
@@ -404,7 +404,7 @@
     "id": 25
   },
   {
-    "question": "27. Quel type d’information contient un enregistrement DNX MX ?",
+    "question": "Quel type d’information contient un enregistrement DNX MX ?",
     "answers": [
       "L’adresse IP d’une entrée FQDN",
       "Le FQDN de l’alias utilisé pour identifier un service",
@@ -419,7 +419,7 @@
     "id": 26
   },
   {
-    "question": "28. Quelles sont les deux caractéristiques d’un réseau peer-to-peer? (Choisissez deux réponses.)",
+    "question": "Quelles sont les deux caractéristiques d’un réseau peer-to-peer? (Choisissez deux réponses.)",
     "answers": [
       "flux de données unidirectionnel",
       "ressources décentralisées",
@@ -436,7 +436,7 @@
     "id": 27
   },
   {
-    "question": "29. Quel scénario décrit une fonction fournie par la couche transport ?",
+    "question": "Quel scénario décrit une fonction fournie par la couche transport ?",
     "answers": [
       "Un étudiant regarde un petit film sur le Web avec le son activé. Le film et le son sont codés dans l’en-tête de la couche transport.",
       "Un étudiant a deux fenêtres de navigateur Web ouvertes pour accéder à deux sites Web. La couche transport s’assure que la page Web appropriée est envoyée vers la fenêtre de navigateur appropriée.",
@@ -451,7 +451,7 @@
     "id": 28
   },
   {
-    "question": "30. Quelles couches du modèle OSI fournissent des services réseau similaires à ceux fournis par la couche application du modèle TCP/IP ? (Choisissez trois réponses.)",
+    "question": "Quelles couches du modèle OSI fournissent des services réseau similaires à ceux fournis par la couche application du modèle TCP/IP ? (Choisissez trois réponses.)",
     "answers": [
       "Couche transport",
       "Couche application",
@@ -470,7 +470,7 @@
     "id": 29
   },
   {
-    "question": "31. Un PC qui communique avec un serveur Web a une taille de fenêtre TCP de 6000 octets lors de l’envoi de données et une taille de paquet de 1500 octets. Quel octet d’informations le serveur Web reconnaît-il après avoir reçu trois paquets de données du PC?",
+    "question": "Un PC qui communique avec un serveur Web a une taille de fenêtre TCP de 6000 octets lors de l’envoi de données et une taille de paquet de 1500 octets. Quel octet d’informations le serveur Web reconnaît-il après avoir reçu trois paquets de données du PC?",
     "answers": [
       "6001",
       "4501",
@@ -485,7 +485,7 @@
     "id": 30
   },
   {
-    "question": "32. Un client crée un paquet à envoyer à un serveur. Le client demande le service POP3. Quel numéro sera utilisé comme numéro de port de destination dans le paquet d’envoi?",
+    "question": "Un client crée un paquet à envoyer à un serveur. Le client demande le service POP3. Quel numéro sera utilisé comme numéro de port de destination dans le paquet d’envoi?",
     "answers": [
       "110",
       "53",
@@ -500,7 +500,7 @@
     "id": 31
   },
   {
-    "question": "33. Un client crée un paquet à envoyer à un serveur. Le client demande le service SNMP. Quel numéro sera utilisé comme numéro de port de destination dans le paquet d’envoi?",
+    "question": "Un client crée un paquet à envoyer à un serveur. Le client demande le service SNMP. Quel numéro sera utilisé comme numéro de port de destination dans le paquet d’envoi?",
     "answers": [
       "443",
       "110",
@@ -515,7 +515,7 @@
     "id": 32
   },
   {
-    "question": "34. Quel protocole doit utiliser un client pour communiquer avec un serveur web de manière sécurisée ?",
+    "question": "Quel protocole doit utiliser un client pour communiquer avec un serveur web de manière sécurisée ?",
     "answers": [
       "SMTP",
       "IMAP",
@@ -530,7 +530,7 @@
     "id": 33
   },
   {
-    "question": "35. Quels sont les trois protocoles qui interviennent au niveau de la couche application du modèle TCP/IP ? (Choisissez trois propositions.)",
+    "question": "Quels sont les trois protocoles qui interviennent au niveau de la couche application du modèle TCP/IP ? (Choisissez trois propositions.)",
     "answers": [
       "UDP",
       "DHCP",
@@ -549,7 +549,7 @@
     "id": 34
   },
   {
-    "question": "36. Quelles applications ou services permettent aux hôtes d’agir en tant que client et serveur en même temps?",
+    "question": "Quelles applications ou services permettent aux hôtes d’agir en tant que client et serveur en même temps?",
     "answers": [
       "Applications client-serveur",
       "Page de l’application E-mail",
@@ -564,7 +564,7 @@
     "id": 35
   },
   {
-    "question": "37. À quel type d’application le protocole UDP est-il le mieux adapté? (Choisissez deux réponses.)",
+    "question": "À quel type d’application le protocole UDP est-il le mieux adapté? (Choisissez deux réponses.)",
     "answers": [
       "Les applications peuvent tolérer certaines pertes de données, mais peu ou pas de retard.",
       "Les applications qui gèrent elles-mêmes la fiabilité",
@@ -581,7 +581,7 @@
     "id": 36
   },
   {
-    "question": "38. Quel élément constitue une caractéristique du protocole UDP ?",
+    "question": "Quel élément constitue une caractéristique du protocole UDP ?",
     "answers": [
       "UDP transmet les données au réseau uniquement si la destination est prête à les recevoir.",
       "Les applications qui utilisent UDP sont toujours considérées comme n’étant pas fiables.",
@@ -596,7 +596,7 @@
     "id": 37
   },
   {
-    "question": "39. Quelles sont les trois responsabilités de la couche transport ? (Choisissez trois propositions.)",
+    "question": "Quelles sont les trois responsabilités de la couche transport ? (Choisissez trois propositions.)",
     "answers": [
       "Mettre en forme les données dans un format compatible pour la réception par les périphériques de destination",
       "Multiplexer plusieurs flux de communication provenant de nombreux utilisateurs ou applications sur un même réseau",
@@ -615,7 +615,7 @@
     "id": 38
   },
   {
-    "question": "41. Quel type de port doit être demandé auprès de l’IANA pour pouvoir l’utiliser avec une application particulière ?",
+    "question": "Quel type de port doit être demandé auprès de l’IANA pour pouvoir l’utiliser avec une application particulière ?",
     "answers": [
       "Un port privé",
       "Un port source",
@@ -630,7 +630,7 @@
     "id": 39
   },
   {
-    "question": "42. Un fabricant s’abonne à des services proposés par son FAI. Ces services incluent le web hébergé, le transfert de fichiers et la messagerie. Quels protocoles représentent ces trois applications clés ? (Choisissez trois propositions.)",
+    "question": "Un fabricant s’abonne à des services proposés par son FAI. Ces services incluent le web hébergé, le transfert de fichiers et la messagerie. Quels protocoles représentent ces trois applications clés ? (Choisissez trois propositions.)",
     "answers": [
       "SNMP",
       "FTP",
@@ -649,7 +649,7 @@
     "id": 40
   },
   {
-    "question": "43. Quels sont les éléments communs aux modèles de réseau client-serveur et peer-to-peer ?",
+    "question": "Quels sont les éléments communs aux modèles de réseau client-serveur et peer-to-peer ?",
     "answers": [
       "Les deux utilisent uniquement un environnement de réseau filaire.",
       "Dans les deux, les terminaux peuvent jouer le rôle de client ou de serveur.",
@@ -664,7 +664,7 @@
     "id": 41
   },
   {
-    "question": "44. Dans quel modèle de réseau eDonkey, eMule, BitTorrent, Bitcoin et LionShare seraient-ils utilisés?",
+    "question": "Dans quel modèle de réseau eDonkey, eMule, BitTorrent, Bitcoin et LionShare seraient-ils utilisés?",
     "answers": [
       "Basé sur un client",
       "P2P (peer-to-peer)",
@@ -679,7 +679,7 @@
     "id": 42
   },
   {
-    "question": "45. Un client crée un paquet à envoyer à un serveur. Le client demande le service HTTPS. Quel numéro sera utilisé comme numéro de port de destination dans le paquet d’envoi?",
+    "question": "Un client crée un paquet à envoyer à un serveur. Le client demande le service HTTPS. Quel numéro sera utilisé comme numéro de port de destination dans le paquet d’envoi?",
     "answers": [
       "161",
       "80",
@@ -694,7 +694,7 @@
     "id": 43
   },
   {
-    "question": "46. Quelle couche du modèle TCP/IP permet de mettre en forme, de compresser et de chiffrer les données ?",
+    "question": "Quelle couche du modèle TCP/IP permet de mettre en forme, de compresser et de chiffrer les données ?",
     "answers": [
       "Session",
       "Application",
@@ -710,7 +710,7 @@
     "id": 44
   },
   {
-    "question": "47. Quelle information TCP utilise-t-il pour réassembler et réorganiser les segments reçus ?",
+    "question": "Quelle information TCP utilise-t-il pour réassembler et réorganiser les segments reçus ?",
     "answers": [
       "Les numéros de fragment",
       "Les numéros d’ordre",
@@ -725,7 +725,7 @@
     "id": 45
   },
   {
-    "question": "48. Un client crée un paquet à envoyer à un serveur. Le client demande le service telnet. Quel numéro sera utilisé comme numéro de port de destination dans le paquet d’envoi?",
+    "question": "Un client crée un paquet à envoyer à un serveur. Le client demande le service telnet. Quel numéro sera utilisé comme numéro de port de destination dans le paquet d’envoi?",
     "answers": [
       "23",
       "110",
@@ -740,7 +740,7 @@
     "id": 46
   },
   {
-    "question": "49. Un PC qui communique avec un serveur Web a une taille de fenêtre TCP de 6000 octets lors de l’envoi de données et une taille de paquet de 1500 octets. Quel octet d’informations le serveur Web reconnaît-il après avoir reçu quatre paquets de données du PC?",
+    "question": "Un PC qui communique avec un serveur Web a une taille de fenêtre TCP de 6000 octets lors de l’envoi de données et une taille de paquet de 1500 octets. Quel octet d’informations le serveur Web reconnaît-il après avoir reçu quatre paquets de données du PC?",
     "answers": [
       "3001",
       "1500",
@@ -755,7 +755,7 @@
     "id": 47
   },
   {
-    "question": "50. Un PC télécharge un fichier volumineux depuis un serveur. La fenêtre TCP est de 1 000 octets. Le serveur envoie le fichier à l’aide de segments de 100 octets. Combien de segments le serveur envoie-t-il avant de demander un accusé de réception de la part du PC ?",
+    "question": "Un PC télécharge un fichier volumineux depuis un serveur. La fenêtre TCP est de 1 000 octets. Le serveur envoie le fichier à l’aide de segments de 100 octets. Combien de segments le serveur envoie-t-il avant de demander un accusé de réception de la part du PC ?",
     "answers": [
       "10 segments",
       "100 segments",
@@ -770,7 +770,7 @@
     "id": 48
   },
   {
-    "question": "51. Quels champs sont utilisés dans un en-tête de segment UDP ? (Choisissez trois réponses.)",
+    "question": "Quels champs sont utilisés dans un en-tête de segment UDP ? (Choisissez trois réponses.)",
     "answers": [
       "Numéro d’accusé de réception",
       "Longueur",
@@ -789,7 +789,7 @@
     "id": 49
   },
   {
-    "question": "52. Un PC qui communique avec un serveur Web a une taille de fenêtre TCP de 6000 octets lors de l’envoi de données et une taille de paquet de 1500 octets. 52. Quel octet d’informations le serveur Web reconnaît-il après avoir reçu deux paquets de données du PC?",
+    "question": "Un PC qui communique avec un serveur Web a une taille de fenêtre TCP de 6000 octets lors de l’envoi de données et une taille de paquet de 1500 octets. 52. Quel octet d’informations le serveur Web reconnaît-il après avoir reçu deux paquets de données du PC?",
     "answers": [
       "6001",
       "3001",
@@ -804,7 +804,7 @@
     "id": 50
   },
   {
-    "question": "53. Un client crée un paquet à envoyer à un serveur. Le client demande le service SSH. Quel numéro sera utilisé comme numéro de port de destination dans le paquet d’envoi?",
+    "question": "Un client crée un paquet à envoyer à un serveur. Le client demande le service SSH. Quel numéro sera utilisé comme numéro de port de destination dans le paquet d’envoi?",
     "answers": [
       "22",
       "67",
@@ -819,7 +819,7 @@
     "id": 51
   },
   {
-    "question": "54. Un PC qui communique avec un serveur Web a une taille de fenêtre TCP de 6000 octets lors de l’envoi de données et une taille de paquet de 1500 octets. Quel octet d’informations le serveur Web reconnaît-il après avoir reçu deux paquets de données du PC?",
+    "question": "Un PC qui communique avec un serveur Web a une taille de fenêtre TCP de 6000 octets lors de l’envoi de données et une taille de paquet de 1500 octets. Quel octet d’informations le serveur Web reconnaît-il après avoir reçu deux paquets de données du PC?",
     "answers": [
       "3001",
       "4500",
@@ -834,7 +834,7 @@
     "id": 52
   },
   {
-    "question": "55. Un client crée un paquet à envoyer à un serveur. Le client demande un service FTP. Quel numéro sera utilisé comme numéro de port de destination dans le paquet d’envoi?",
+    "question": "Un client crée un paquet à envoyer à un serveur. Le client demande un service FTP. Quel numéro sera utilisé comme numéro de port de destination dans le paquet d’envoi?",
     "answers": [
       "67",
       "69",
@@ -849,7 +849,7 @@
     "id": 53
   },
   {
-    "question": "56. Un client crée un paquet à envoyer à un serveur. Le client demande le service TFTP. Quel numéro sera utilisé comme numéro de port de destination dans le paquet d’envoi?",
+    "question": "Un client crée un paquet à envoyer à un serveur. Le client demande le service TFTP. Quel numéro sera utilisé comme numéro de port de destination dans le paquet d’envoi?",
     "answers": [
       "67",
       "69",

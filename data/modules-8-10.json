@@ -1,6 +1,6 @@
 [
   {
-    "question": "7. Un ordinateur peut accéder aux périphériques situés sur le même réseau que lui, mais pas à ceux présents sur d’autres réseaux. Quelle est la cause probable de ce problème ?",
+    "question": "Un ordinateur peut accéder aux périphériques situés sur le même réseau que lui, mais pas à ceux présents sur d’autres réseaux. Quelle est la cause probable de ce problème ?",
     "answers": [
       "Le câble n’est pas correctement raccordé à la carte réseau.",
       "L’adresse de la passerelle par défaut de l’ordinateur n’est pas valide.",
@@ -15,7 +15,7 @@
     "id": 1
   },
   {
-    "question": "8. Quelle déclaration décrit une caractéristique du protocole IP ?",
+    "question": "Quelle déclaration décrit une caractéristique du protocole IP ?",
     "answers": [
       "IP s’appuie sur les protocoles de couche 2 pour le contrôle des erreurs de transmission.",
       "IP s’appuie sur les services de la couche supérieure pour gérer les situations de paquets manquants ou hors de service.",
@@ -30,7 +30,7 @@
     "id": 2
   },
   {
-    "question": "9. Sur un réseau de production, quel est l’objectif de la configuration d’un commutateur avec une adresse de passerelle par défaut ?",
+    "question": "Sur un réseau de production, quel est l’objectif de la configuration d’un commutateur avec une adresse de passerelle par défaut ?",
     "answers": [
       "Elle fournit une adresse de tronçon suivant pour tout le trafic qui traverse le commutateur.",
       "Les hôtes connectés au commutateur peuvent utiliser l’adresse de la passerelle par défaut du commutateur pour transférer les paquets vers une destination distante.",
@@ -45,7 +45,7 @@
     "id": 3
   },
   {
-    "question": "10. Quelle proposition est une caractéristique de base du protocole IP ?",
+    "question": "Quelle proposition est une caractéristique de base du protocole IP ?",
     "answers": [
       "Remise de paquets fiable de bout en bout",
       "Indépendant des supports",
@@ -60,7 +60,7 @@
     "id": 4
   },
   {
-    "question": "11. Quel avantage l’en-tête IPv6 simplifié présente-t-il par rapport à IPv4 ?",
+    "question": "Quel avantage l’en-tête IPv6 simplifié présente-t-il par rapport à IPv4 ?",
     "answers": [
       "Il est plus petit.",
       "Les paquets sont gérés plus efficacement.",
@@ -75,7 +75,7 @@
     "id": 5
   },
   {
-    "question": "12. Quel champ de l’en-tête IPv4 identifie le protocole de la couche supérieure transmis dans le paquet ?",
+    "question": "Quel champ de l’en-tête IPv4 identifie le protocole de la couche supérieure transmis dans le paquet ?",
     "answers": [
       "Protocole",
       "Version",
@@ -90,7 +90,7 @@
     "id": 6
   },
   {
-    "question": "13. Quelles informations le test de bouclage fournit-il ?",
+    "question": "Quelles informations le test de bouclage fournit-il ?",
     "answers": [
       "Le câble Ethernet fonctionne correctement.",
       "La pile TCP/IP sur le périphérique fonctionne correctement.",
@@ -106,7 +106,7 @@
     "id": 7
   },
   {
-    "question": "14. Comment les hôtes s’assurent-ils que leurs paquets sont dirigés vers la destination réseau appropriée ?",
+    "question": "Comment les hôtes s’assurent-ils que leurs paquets sont dirigés vers la destination réseau appropriée ?",
     "answers": [
       "Dans leur propre table de routage locale, ils recherchent une route vers l’adresse de destination réseau et transmettent ces informations à la passerelle par défaut.",
       "Ils envoient un paquet de requêtes à la passerelle par défaut pour demander quelle est la meilleure route.",
@@ -121,7 +121,7 @@
     "id": 8
   },
   {
-    "question": "15. Quelle proposition décrit la fonction du protocole ARP (Address Resolution Protocol) ?",
+    "question": "Quelle proposition décrit la fonction du protocole ARP (Address Resolution Protocol) ?",
     "answers": [
       "Le protocole ARP permet de détecter l’adresse IP de tout hôte sur le réseau local.",
       "Le protocole ARP permet de détecter l’adresse MAC de tout hôte sur un autre réseau.",
@@ -136,7 +136,7 @@
     "id": 9
   },
   {
-    "question": "16. Dans quelles deux circonstances un commutateur peut-il inonder chaque port d’une trame, à l’exception de celui sur lequel la trame a été reçue ? (Choisissez deux propositions.)?",
+    "question": "Dans quelles deux circonstances un commutateur peut-il inonder chaque port d’une trame, à l’exception de celui sur lequel la trame a été reçue ? (Choisissez deux propositions.)?",
     "answers": [
       "L’adresse source de l’en-tête de la trame est l’adresse de diffusion.",
       "L’adresse de destination est inconnue pour le commutateur.",
@@ -153,7 +153,7 @@
     "id": 10
   },
   {
-    "question": "17. Parmi les propositions suivantes, laquelle explique ce que font les demandes ARP sur une liaison locale ?",
+    "question": "Parmi les propositions suivantes, laquelle explique ce que font les demandes ARP sur une liaison locale ?",
     "answers": [
       "Elles sont transmises par tous les routeurs situés sur le réseau local.",
       "Elles sont réceptionnées et traitées uniquement par le périphérique de destination.",
@@ -168,7 +168,7 @@
     "id": 11
   },
   {
-    "question": "18. Quelle adresse de destination est utilisée dans un cadre de requête ARP ?",
+    "question": "Quelle adresse de destination est utilisée dans un cadre de requête ARP ?",
     "answers": [
       "FFFF.FFFF.FFFF",
       "AAAA.AAAA.AAAA",
@@ -184,7 +184,7 @@
     "id": 12
   },
   {
-    "question": "19. Un technicien réseau exécute une commande arp -d * sur un ordinateur après la reconfiguration du routeur connecté au réseau local. Quel est le résultat obtenu suite à l’exécution de cette commande ?",
+    "question": "Un technicien réseau exécute une commande arp -d * sur un ordinateur après la reconfiguration du routeur connecté au réseau local. Quel est le résultat obtenu suite à l’exécution de cette commande ?",
     "answers": [
       "Le contenu actuel du cache ARP s’affiche.",
       "Le cache ARP est vidé.",
@@ -199,7 +199,7 @@
     "id": 13
   },
   {
-    "question": "20. Examinez l’illustration. L’illustration présente un réseau commuté de petite taille et le contenu de la table d’adresses MAC du commutateur. Le PC1 a envoyé une trame au PC3. Comment le commutateur traite-t-il cette trame ?",
+    "question": "Examinez l’illustration. L’illustration présente un réseau commuté de petite taille et le contenu de la table d’adresses MAC du commutateur. Le PC1 a envoyé une trame au PC3. Comment le commutateur traite-t-il cette trame ?",
     "answers": [
       "Le commutateur transfère la trame uniquement aux ports 1 et 3.",
       "Le commutateur transfère la trame uniquement au port 2.",
@@ -215,7 +215,7 @@
     "id": 14
   },
   {
-    "question": "21. Quelles informations importantes sont examinées dans l’en-tête de la trame Ethernet par un périphérique de couche 2 avant de transmettre les données ?",
+    "question": "Quelles informations importantes sont examinées dans l’en-tête de la trame Ethernet par un périphérique de couche 2 avant de transmettre les données ?",
     "answers": [
       "Adresse IP source",
       "Type Ethernet",
@@ -231,7 +231,7 @@
     "id": 15
   },
   {
-    "question": "22. Citez deux fonctions de la mémoire vive non volatile. (Choisissez deux propositions.)?",
+    "question": "Citez deux fonctions de la mémoire vive non volatile. (Choisissez deux propositions.)?",
     "answers": [
       "Stocker la table ARP",
       "Conserver le fichier de configuration en cours",
@@ -248,7 +248,7 @@
     "id": 16
   },
   {
-    "question": "23. Un routeur démarre et entre en mode de configuration. Pour quelle raison ?",
+    "question": "Un routeur démarre et entre en mode de configuration. Pour quelle raison ?",
     "answers": [
       "Le fichier de configuration est manquant dans NVRAM.",
       "Le processus POST a détecté une défaillance matérielle.",
@@ -263,7 +263,7 @@
     "id": 17
   },
   {
-    "question": "24. Reportez-vous à l’illustration. Un PC d’utilisateur a réussi à transmettre des paquets à www.cisco.com. Quelle adresse IP le PC de l’utilisateur cible-t-il afin de transmettre ses données hors du réseau local ?",
+    "question": "Reportez-vous à l’illustration. Un PC d’utilisateur a réussi à transmettre des paquets à www.cisco.com. Quelle adresse IP le PC de l’utilisateur cible-t-il afin de transmettre ses données hors du réseau local ?",
     "answers": [
       "172.24.1.22",
       "172.20.1.18",
@@ -279,7 +279,7 @@
     "id": 18
   },
   {
-    "question": "25. Quelles sont les trois commandes qui permettent de configurer un accès sécurisé à un routeur via une connexion à l’interface de console ? (Choisissez trois propositions.)?",
+    "question": "Quelles sont les trois commandes qui permettent de configurer un accès sécurisé à un routeur via une connexion à l’interface de console ? (Choisissez trois propositions.)?",
     "answers": [
       "login",
       "password cisco",
@@ -298,7 +298,7 @@
     "id": 19
   },
   {
-    "question": "26. Examinez l’illustration. Examinez la configuration d’adresse IP indiquée à partir du PC1. Parmi les propositions suivante, laquelle correspond à une description de l’adresse de la passerelle par défaut ?",
+    "question": "Examinez l’illustration. Examinez la configuration d’adresse IP indiquée à partir du PC1. Parmi les propositions suivante, laquelle correspond à une description de l’adresse de la passerelle par défaut ?",
     "answers": [
       "Il s’agit de l’adresse IP de l’interface Router1 qui connecte le réseau local du PC1 au Router1.",
       "Il s’agit de l’adresse IP de l’interface Router1 qui connecte l’entreprise à Internet.",
@@ -313,7 +313,7 @@
     "id": 20
   },
   {
-    "question": "27. Quelles sont les deux fonctions principales d’un routeur? (Choisissez deux réponses.)?",
+    "question": "Quelles sont les deux fonctions principales d’un routeur? (Choisissez deux réponses.)?",
     "answers": [
       "Contrôle de flux",
       "Choix des chemins",
@@ -330,7 +330,7 @@
     "id": 21
   },
   {
-    "question": "28. Quel est l’effet de l’utilisation de la commande Router# copy running-config startup-config sur un routeur?",
+    "question": "Quel est l’effet de l’utilisation de la commande Router# copy running-config startup-config sur un routeur?",
     "answers": [
       "Le contenu de la NVRAM changera.",
       "Le contenu du flash va changer.",
@@ -345,7 +345,7 @@
     "id": 22
   },
   {
-    "question": "29. Que se passe-t-il si l’adresse de la passerelle par défaut n’est pas correctement configurée sur un hôte ?",
+    "question": "Que se passe-t-il si l’adresse de la passerelle par défaut n’est pas correctement configurée sur un hôte ?",
     "answers": [
       "Le commutateur ne transfère pas les paquets initiés par l’hôte.",
       "L’hôte ne peut pas communiquer avec les hôtes situés sur d’autres réseaux.",
@@ -361,7 +361,7 @@
     "id": 23
   },
   {
-    "question": "30. Quels sont les problèmes réseau potentiels pouvant résulter du fonctionnement d’ARP ? (Choisissez deux réponses.)?",
+    "question": "Quels sont les problèmes réseau potentiels pouvant résulter du fonctionnement d’ARP ? (Choisissez deux réponses.)?",
     "answers": [
       "Les attaques sur le réseau peuvent manipuler les mappages d’adresses MAC et IP dans les messages ARP pour intercepter le trafic réseau.",
       "Sur les grands réseaux à faible bande passante, plusieurs diffusions ARP peuvent entraîner des délais de communication de données.",
@@ -378,7 +378,7 @@
     "id": 24
   },
   {
-    "question": "31. Quel terme décrit un champ dans l’en-tête de paquet IPv4 qui contient une valeur binaire 4 bits définie sur 0100?",
+    "question": "Quel terme décrit un champ dans l’en-tête de paquet IPv4 qui contient une valeur binaire 4 bits définie sur 0100?",
     "answers": [
       "version",
       "protocole",
@@ -393,7 +393,7 @@
     "id": 25
   },
   {
-    "question": "32. Quelle propriété d’ARP permet aux hôtes d’un réseau local d’envoyer du trafic vers des réseaux distant?",
+    "question": "Quelle propriété d’ARP permet aux hôtes d’un réseau local d’envoyer du trafic vers des réseaux distant?",
     "answers": [
       "L’adresse MAC de source apparaît dans l’en-tête de la trame Ethernet.",
       "L’adresse MAC de la passerelle par défaut",
@@ -408,7 +408,7 @@
     "id": 26
   },
   {
-    "question": "33. Refer to the exhibit. Un administrateur réseau connecte un nouvel hôte au réseau local du Store. L’hôte doit communiquer avec les réseaux distants. Quelle adresse IP doit être configurée comme passerelle par défaut sur le nouvel hôte?",
+    "question": "Refer to the exhibit. Un administrateur réseau connecte un nouvel hôte au réseau local du Store. L’hôte doit communiquer avec les réseaux distants. Quelle adresse IP doit être configurée comme passerelle par défaut sur le nouvel hôte?",
     "answers": [
       "172.19.98.1",
       "10.98.99.254",
@@ -424,7 +424,7 @@
     "id": 27
   },
   {
-    "question": "34. Pourquoi la traduction d’adresses de réseau (NAT) n’est pas nécessaire dans IPv6 ?",
+    "question": "Pourquoi la traduction d’adresses de réseau (NAT) n’est pas nécessaire dans IPv6 ?",
     "answers": [
       "N’importe quel hôte ou utilisateur peut obtenir une adresse réseau IPv6 publique car le nombre d’adresses IPv6 disponibles est très important.",
       "IPv6 dispose d’une sécurité intégrée, il est donc inutile de masquer les adresses IPv6 des réseaux internes.",
@@ -439,7 +439,7 @@
     "id": 28
   },
   {
-    "question": "35. Quel paramètre le routeur utilise-t-il pour choisir le chemin vers la destination lorsque plusieurs routes sont disponibles ?",
+    "question": "Quel paramètre le routeur utilise-t-il pour choisir le chemin vers la destination lorsque plusieurs routes sont disponibles ?",
     "answers": [
       "La valeur métrique la plus forte qui est associée au réseau de destination",
       "La valeur métrique la plus faible qui est associée au réseau de destination",
@@ -454,7 +454,7 @@
     "id": 29
   },
   {
-    "question": "36. La couche réseau du modèle OSI fournit deux services. Lesquels ? (Choisissez deux propositions.)",
+    "question": "La couche réseau du modèle OSI fournit deux services. Lesquels ? (Choisissez deux propositions.)",
     "answers": [
       "Encapsulation des PDU provenant de la couche transport",
       "Détection d’erreurs",
@@ -471,7 +471,7 @@
     "id": 30
   },
   {
-    "question": "37. Quelle entrée de la table de routage comporte une adresse de tronçon suivant associée à un réseau de destination ?",
+    "question": "Quelle entrée de la table de routage comporte une adresse de tronçon suivant associée à un réseau de destination ?",
     "answers": [
       "Les routes directement connectées",
       "Les routes source C et L",
@@ -486,7 +486,7 @@
     "id": 31
   },
   {
-    "question": "38. Quels sont les deux types de messages IPv6 utilisés à la place de l’ARP pour la résolution d’adresse?",
+    "question": "Quels sont les deux types de messages IPv6 utilisés à la place de l’ARP pour la résolution d’adresse?",
     "answers": [
       "diffusion",
       "Requête d’écho",
@@ -504,7 +504,7 @@
     "id": 32
   },
   {
-    "question": "39. Quel est le but d’une attaque par usurpation ARP ?",
+    "question": "Quel est le but d’une attaque par usurpation ARP ?",
     "answers": [
       "Remplir les tables d’adressage MAC des commutateurs avec de fausses adresses",
       "Inonder le réseau avec des réponses ARP",
@@ -519,7 +519,7 @@
     "id": 33
   },
   {
-    "question": "40. Examinez l’illustration. PC1 tente de se connecter à File_server1 et envoie une requête ARP pour obtenir une adresse MAC de destination. Quelle adresse MAC PC1 reçoit-il dans la réponse ARP ?",
+    "question": "Examinez l’illustration. PC1 tente de se connecter à File_server1 et envoie une requête ARP pour obtenir une adresse MAC de destination. Quelle adresse MAC PC1 reçoit-il dans la réponse ARP ?",
     "answers": [
       "L’adresse MAC de File_server1.",
       "L’adresse MAC de S2.",
@@ -535,7 +535,7 @@
     "id": 34
   },
   {
-    "question": "41. Un nouvel administrateur de réseau a été invité à saisir un message de bannière sur un appareil Cisco. Quel est le moyen le plus rapide pour un administrateur de réseau de vérifier si la bannière est correctement configurée ?",
+    "question": "Un nouvel administrateur de réseau a été invité à saisir un message de bannière sur un appareil Cisco. Quel est le moyen le plus rapide pour un administrateur de réseau de vérifier si la bannière est correctement configurée ?",
     "answers": [
       "Quittez le mode de configuration globale.",
       "Quittez le mode d’exécution privilégié et appuyez sur Enter .",
@@ -551,7 +551,7 @@
     "id": 35
   },
   {
-    "question": "42. La commande de configuration globale ip default-gateway 172.16.100.1 est appliquée sur un commutateur. Quel est l’effet de cette commande?",
+    "question": "La commande de configuration globale ip default-gateway 172.16.100.1 est appliquée sur un commutateur. Quel est l’effet de cette commande?",
     "answers": [
       "Le commutateur peut être géré à distance à partir d’un hôte sur un autre réseau.",
       "Le commutateur aura une interface de gestion avec l’adresse 172.16.100.1.",
@@ -566,7 +566,7 @@
     "id": 36
   },
   {
-    "question": "43. Que se passe-t-il lorsque la commande transport input ssh est entrée sur les lignes vty du switch?",
+    "question": "Que se passe-t-il lorsque la commande transport input ssh est entrée sur les lignes vty du switch?",
     "answers": [
       "Le client SSH sur le commutateur est activé.",
       "Le commutateur nécessite une combinaison nom d’utilisateur/mot de passe pour l’accès à distance.",
@@ -581,7 +581,7 @@
     "id": 37
   },
   {
-    "question": "44. Quel terme décrit un champ dans l’en-tête de paquet IPv4 utilisé pour identifier le protocole de niveau suivant?",
+    "question": "Quel terme décrit un champ dans l’en-tête de paquet IPv4 utilisé pour identifier le protocole de niveau suivant?",
     "answers": [
       "protocole",
       "Des services différenciés",
@@ -596,7 +596,7 @@
     "id": 38
   },
   {
-    "question": "45. Quelle propriété d’ARP fait que les cartes réseau recevant une demande ARP transmettent la partie données de la trame Ethernet au processus ARP?",
+    "question": "Quelle propriété d’ARP fait que les cartes réseau recevant une demande ARP transmettent la partie données de la trame Ethernet au processus ARP?",
     "answers": [
       "La table d’adresses Port-à-Mac sur un commutateur a les mêmes entrées que la table ARP sur le commutateur.",
       "L’adresse MAC de destination FF-FF-FF-FF-FF-FF apparaît dans l’en-tête de la trame Ethernet.",
@@ -611,7 +611,7 @@
     "id": 39
   },
   {
-    "question": "46. Refer to the exhibit. Un administrateur réseau connecte un nouvel hôte au réseau local Manager. L’hôte doit communiquer avec les réseaux distants. Quelle adresse IP doit être configurée comme passerelle par défaut sur le nouvel hôte?",
+    "question": "Refer to the exhibit. Un administrateur réseau connecte un nouvel hôte au réseau local Manager. L’hôte doit communiquer avec les réseaux distants. Quelle adresse IP doit être configurée comme passerelle par défaut sur le nouvel hôte?",
     "answers": [
       "10.118.63.65",
       "10.62.63.254",
@@ -627,7 +627,7 @@
     "id": 40
   },
   {
-    "question": "47. Refer to the exhibit. Un administrateur réseau est en train de connecter un nouvel hôte au réseau local du bureau d’enregistrement. L’hôte doit communiquer avec les réseaux distants. Quelle adresse IP doit être configurée comme passerelle par défaut sur le nouvel hôte ?",
+    "question": "Refer to the exhibit. Un administrateur réseau est en train de connecter un nouvel hôte au réseau local du bureau d’enregistrement. L’hôte doit communiquer avec les réseaux distants. Quelle adresse IP doit être configurée comme passerelle par défaut sur le nouvel hôte ?",
     "answers": [
       "192.168.235.1",
       "192.168.234.114",
@@ -643,7 +643,7 @@
     "id": 41
   },
   {
-    "question": "49. Lors du transport des données depuis des applications en temps réel, notamment la lecture audio et vidéo en continu, quel champ de l’en-tête IPv6 peut être utilisé pour informer les routeurs et les commutateurs de conserver le même chemin pour les paquets au sein de la même conversation ?",
+    "question": "Lors du transport des données depuis des applications en temps réel, notamment la lecture audio et vidéo en continu, quel champ de l’en-tête IPv6 peut être utilisé pour informer les routeurs et les commutateurs de conserver le même chemin pour les paquets au sein de la même conversation ?",
     "answers": [
       "Classe de trafic",
       "En-tête suivant",
@@ -658,7 +658,7 @@
     "id": 42
   },
   {
-    "question": "50. Quel champ de l’en-tête IPv4 permet d’empêcher un paquet de traverser un réseau indéfiniment ?",
+    "question": "Quel champ de l’en-tête IPv4 permet d’empêcher un paquet de traverser un réseau indéfiniment ?",
     "answers": [
       "Numéro de séquence",
       "Time To Live (durée de vie)",
@@ -673,7 +673,7 @@
     "id": 43
   },
   {
-    "question": "51. Refer to the exhibit.exposition. Un administrateur réseau connecte un nouvel hôte au réseau local du Store. L’hôte doit communiquer avec les réseaux distants. Quelle adresse IP doit être configurée comme passerelle par défaut sur le nouvel hôte?",
+    "question": "Refer to the exhibit.exposition. Un administrateur réseau connecte un nouvel hôte au réseau local du Store. L’hôte doit communiquer avec les réseaux distants. Quelle adresse IP doit être configurée comme passerelle par défaut sur le nouvel hôte?",
     "answers": [
       "198.51.100.156",
       "172.20.132.13",
@@ -689,7 +689,7 @@
     "id": 44
   },
   {
-    "question": "52. Quelle propriété d’ARP permet de fixer les adresses MAC des serveurs fréquemment utilisés dans la table ARP?",
+    "question": "Quelle propriété d’ARP permet de fixer les adresses MAC des serveurs fréquemment utilisés dans la table ARP?",
     "answers": [
       "Une entrée d’adresse IP à Mac statique peut être saisie manuellement dans une table ARP.",
       "L’adresse MAC de source apparaît dans l’en-tête de la trame Ethernet.",
@@ -704,7 +704,7 @@
     "id": 45
   },
   {
-    "question": "53. Refer to the exhibit. Un administrateur réseau connecte un nouvel hôte au réseau local de Payroll. L’hôte doit communiquer avec les réseaux distants. Quelle adresse IP doit être configurée comme passerelle par défaut sur le nouvel hôte?",
+    "question": "Refer to the exhibit. Un administrateur réseau connecte un nouvel hôte au réseau local de Payroll. L’hôte doit communiquer avec les réseaux distants. Quelle adresse IP doit être configurée comme passerelle par défaut sur le nouvel hôte?",
     "answers": [
       "10.27.14.148",
       "10.27.15.17",
@@ -720,7 +720,7 @@
     "id": 46
   },
   {
-    "question": "54. Quel terme décrit un champ de l’en-tête de paquet IPv4 qui contient une adresse de monodiffusion, de multidiffusion ou de diffusion ?",
+    "question": "Quel terme décrit un champ de l’en-tête de paquet IPv4 qui contient une adresse de monodiffusion, de multidiffusion ou de diffusion ?",
     "answers": [
       "Durée de vie",
       "Somme de contrôle d’en-tête",
@@ -735,7 +735,7 @@
     "id": 47
   },
   {
-    "question": "55. Sur un ordinateur hôte, où sont enregistrés les mappages adresse IPv4-adresse Ethernet de couche 2 ?",
+    "question": "Sur un ordinateur hôte, où sont enregistrés les mappages adresse IPv4-adresse Ethernet de couche 2 ?",
     "answers": [
       "table de voisinage",
       "cache ARP",
@@ -750,7 +750,7 @@
     "id": 48
   },
   {
-    "question": "56. Quel terme décrit un champ dans l’en-tête de paquet IPv4 qui contient une valeur binaire 32 bits associée à une interface sur le périphérique d’envoi?",
+    "question": "Quel terme décrit un champ dans l’en-tête de paquet IPv4 qui contient une valeur binaire 32 bits associée à une interface sur le périphérique d’envoi?",
     "answers": [
       "L’adresse IP de destination",
       "protocole",
@@ -765,7 +765,7 @@
     "id": 49
   },
   {
-    "question": "57. Quelle propriété d’ARP fait que les mappages IP-Mac mis en cache restent en mémoire plus longtemps?",
+    "question": "Quelle propriété d’ARP fait que les mappages IP-Mac mis en cache restent en mémoire plus longtemps?",
     "answers": [
       "Le champ de type 0x806 apparaît dans l’en-tête de la trame Ethernet.",
       "La table d’adresses Port-à-Mac sur un commutateur a les mêmes entrées que la table ARP sur le commutateur.",
@@ -780,7 +780,7 @@
     "id": 50
   },
   {
-    "question": "58. Refer to the exhibit. Un administrateur réseau connecte un nouvel hôte au réseau local Medical. L’hôte doit communiquer avec les réseaux distants. Quelle adresse IP doit être configurée comme passerelle par défaut sur le nouvel hôte?",
+    "question": "Refer to the exhibit. Un administrateur réseau connecte un nouvel hôte au réseau local Medical. L’hôte doit communiquer avec les réseaux distants. Quelle adresse IP doit être configurée comme passerelle par défaut sur le nouvel hôte?",
     "answers": [
       "10.190.191.254",
       "192.168.191.1",
@@ -796,7 +796,7 @@
     "id": 51
   },
   {
-    "question": "59. Quelle propriété d’ARP provoque l’inondation de la demande de tous les ports d’un commutateur à l’exception du port recevant la demande ARP?",
+    "question": "Quelle propriété d’ARP provoque l’inondation de la demande de tous les ports d’un commutateur à l’exception du port recevant la demande ARP?",
     "answers": [
       "Les entrées d’une table ARP sont horodatées et purgées après l’expiration du délai d’expiration.",
       "Le champ de type 0x806 apparaît dans l’en-tête de la trame Ethernet.",
@@ -811,7 +811,7 @@
     "id": 52
   },
   {
-    "question": "60. Quelle propriété d’ARP provoque une réponse uniquement à la source qui envoie une demande ARP?",
+    "question": "Quelle propriété d’ARP provoque une réponse uniquement à la source qui envoie une demande ARP?",
     "answers": [
       "Les réponses ARP sont diffusées sur le réseau lorsqu’un hôte reçoit une demande ARP.",
       "L’adresse MAC de destination FF-FF-FF-FF-FF-FF apparaît dans l’en-tête de la trame Ethernet.",
@@ -826,7 +826,7 @@
     "id": 53
   },
   {
-    "question": "61. Refer to the exhibit. Un administrateur réseau connecte un nouvel hôte au Service de réseau local. L’hôte doit communiquer avec les réseaux distants. Quelle adresse IP doit être configurée comme passerelle par défaut sur le nouvel hôte?",
+    "question": "Refer to the exhibit. Un administrateur réseau connecte un nouvel hôte au Service de réseau local. L’hôte doit communiquer avec les réseaux distants. Quelle adresse IP doit être configurée comme passerelle par défaut sur le nouvel hôte?",
     "answers": [
       "198.51.100.177",
       "172.29.157.1",
@@ -842,7 +842,7 @@
     "id": 54
   },
   {
-    "question": "62. Quel terme décrit un champ dans l’en-tête de paquet IPv4 utilisé pour limiter la durée de vie d’un paquet?",
+    "question": "Quel terme décrit un champ dans l’en-tête de paquet IPv4 utilisé pour limiter la durée de vie d’un paquet?",
     "answers": [
       "Durée de vie (TTL)",
       "protocole",
@@ -857,7 +857,7 @@
     "id": 55
   },
   {
-    "question": "63. Se reporter à la pièce. Un administrateur réseau connecte un nouvel hôte au réseau local Registrar. L’hôte doit communiquer avec les réseaux distants. Quelle adresse IP doit être configurée comme passerelle par défaut sur le nouvel hôte?",
+    "question": "Se reporter à la pièce. Un administrateur réseau connecte un nouvel hôte au réseau local Registrar. L’hôte doit communiquer avec les réseaux distants. Quelle adresse IP doit être configurée comme passerelle par défaut sur le nouvel hôte?",
     "answers": [
       "10.224.225.254",
       "192.168.225.1",
