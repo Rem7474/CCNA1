@@ -18,7 +18,7 @@ Utilisation:
 import re
 import json
 import argparse
-from urllib.parse import urlparse
+from urllib.parse import urlparse, urljoin
 from pathlib import Path
 
 DEFAULT_URL = "https://ccnareponses.com/modules-1-3-examen-sur-la-connectivite-des-reseaux-de-base-et-les-communications-reponses/"
@@ -33,6 +33,24 @@ except ImportError:
     raise SystemExit(2)
 
 QUESTION_REGEX = re.compile(r"^\s*\d+\.|^Question\s*\d+", re.IGNORECASE)
+
+
+def extract_listing_links(html: str, base_url: str):
+    """Return all question page links found inside #tab-0-ccna-1."""
+    soup = BeautifulSoup(html, 'html.parser')
+    container = soup.find(id='tab-0-ccna-1')
+    if not container:
+        return []
+    links = []
+    for a in container.find_all('a', href=True):
+        href = a['href']
+        url = urljoin(base_url, href)
+        title = a.get_text(" ", strip=True) or a.get('title') or url
+        links.append({
+            'url': url,
+            'title': title,
+        })
+    return links
 
 
 def fetch_html(url: str) -> str:
@@ -81,6 +99,28 @@ def parse_qa_from_container(container):
         return False
 
     anchors = [t for t in container.find_all(['p', 'h2', 'h3', 'h4']) if is_question_anchor(t)]
+
+    def pick_img_url(img_tag):
+        """Return the best candidate URL from lazy-load or src attributes."""
+        if not img_tag:
+            return None
+        attr_order = (
+            'data-lazy-src', 'data-src', 'data-original', 'src',
+        )
+        srcset_order = (
+            'data-lazy-srcset', 'data-srcset', 'srcset',
+        )
+        for attr in attr_order:
+            val = img_tag.get(attr)
+            if val:
+                return val.strip()
+        for attr in srcset_order:
+            srcset = img_tag.get(attr)
+            if srcset:
+                parts = [p.strip().split()[0] for p in srcset.split(',') if p.strip()]
+                if parts:
+                    return parts[0]
+        return None
     for q_p in anchors:
         strong = q_p.find('strong')
         question_text = strong.get_text(" ", strip=True) if strong else q_p.get_text(" ", strip=True)
@@ -93,8 +133,7 @@ def parse_qa_from_container(container):
                 break
             if getattr(sib, 'name', None) in ('figure', 'div') and image_url is None:
                 img = sib.find('img') if getattr(sib, 'find', None) else None
-                if img and img.get('src'):
-                    image_url = img['src']
+                image_url = pick_img_url(img)
             if getattr(sib, 'name', None) in ('ul', 'ol') and answer_list is None:
                 answer_list = sib
 
@@ -151,6 +190,38 @@ def main():
 
     print(f"Téléchargement: {url}")
     html = fetch_html(url)
+
+    listing_links = extract_listing_links(html, url)
+    if listing_links:
+        print(f"Liste trouvée: {len(listing_links)} liens dans #tab-0-ccna-1")
+        written = 0
+        combined = []
+        combined_out = Path(args.out) if args.out else derive_out_from_url(url)
+        for link in listing_links:
+            print(f"  -> Scrape {link['title']} ({link['url']})")
+            page_html = fetch_html(link['url'])
+            container = extract_container(page_html)
+            if not container:
+                print("     Conteneur introuvable, fallback parse page complète")
+                container = BeautifulSoup(page_html, 'html.parser')
+            data = parse_qa_from_container(container)
+            data = assign_ids(data)
+            combined.extend(data)
+            out_file = derive_out_from_url(link['url'])
+            out_file.parent.mkdir(parents=True, exist_ok=True)
+            with open(out_file, 'w', encoding='utf-8') as f:
+                json.dump(data, f, ensure_ascii=False, indent=2)
+            print(f"     Écrit {len(data)} questions dans {out_file}")
+            written += 1
+        if combined:
+            combined = assign_ids(combined)
+            combined_out.parent.mkdir(parents=True, exist_ok=True)
+            with open(combined_out, 'w', encoding='utf-8') as f:
+                json.dump(combined, f, ensure_ascii=False, indent=2)
+            print(f"Fichier combiné: {combined_out} ({len(combined)} questions)")
+        print(f"Terminé: {written} fichiers écrits.")
+        return 0
+
     print("Extraction dans le conteneur principal...")
     container = extract_container(html)
     if not container:
