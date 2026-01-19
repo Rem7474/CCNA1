@@ -98,7 +98,11 @@ def parse_qa_from_container(container):
             return True
         return False
 
-    anchors = [t for t in container.find_all(['p', 'h2', 'h3', 'h4']) if is_question_anchor(t)]
+    if container is None:
+        return results
+    
+    all_tags = container.find_all(['p', 'h2', 'h3', 'h4'])
+    anchors = [t for t in all_tags if is_question_anchor(t)]
 
     def pick_img_url(img_tag):
         """Return the best candidate URL from lazy-load or src attributes."""
@@ -125,13 +129,22 @@ def parse_qa_from_container(container):
         strong = q_p.find('strong')
         question_text = strong.get_text(" ", strip=True) if strong else q_p.get_text(" ", strip=True)
 
-        # Scan forward through siblings until the next <p><strong> is encountered
+        # Check first if image is in the same tag as the question (e.g., <p><strong>Q</strong><br><img></p>)
         image_url = None
+        img_in_same_tag = q_p.find('img')
+        if img_in_same_tag:
+            image_url = pick_img_url(img_in_same_tag)
+        
+        # Scan forward through siblings until the next <p><strong> is encountered
         answer_list = None
         for sib in q_p.next_siblings:
             if is_question_anchor(sib):
                 break
-            if getattr(sib, 'name', None) in ('figure', 'div') and image_url is None:
+            # Direct <img> tag
+            if getattr(sib, 'name', None) == 'img' and image_url is None:
+                image_url = pick_img_url(sib)
+            # <img> inside <p>, <figure>, <div>, etc.
+            if getattr(sib, 'name', None) in ('p', 'figure', 'div', 'span') and image_url is None:
                 img = sib.find('img') if getattr(sib, 'find', None) else None
                 image_url = pick_img_url(img)
             if getattr(sib, 'name', None) in ('ul', 'ol') and answer_list is None:
@@ -171,6 +184,9 @@ def assign_ids(items):
 def derive_out_from_url(url: str) -> Path:
     data_dir = Path(__file__).resolve().parents[1] / 'data'
     slug = urlparse(url).path.rstrip('/').split('/')[-1]
+    # Check if this is an exam/final URL
+    if re.search(r"(examen.*final|final.*exam|itnv7.*practice|ccna.*final)", slug, flags=re.IGNORECASE):
+        return data_dir / 'final.json'
     # Try to extract 'modules-<numbers>' pattern
     m = re.search(r"(modules?-\d+(?:-\d+)*)", slug, flags=re.IGNORECASE)
     base = (m.group(1).lower() if m else slug.lower()) or 'scraped'
@@ -195,30 +211,25 @@ def main():
     if listing_links:
         print(f"Liste trouvée: {len(listing_links)} liens dans #tab-0-ccna-1")
         written = 0
-        combined = []
-        combined_out = Path(args.out) if args.out else derive_out_from_url(url)
         for link in listing_links:
             print(f"  -> Scrape {link['title']} ({link['url']})")
             page_html = fetch_html(link['url'])
             container = extract_container(page_html)
-            if not container:
-                print("     Conteneur introuvable, fallback parse page complète")
-                container = BeautifulSoup(page_html, 'html.parser')
             data = parse_qa_from_container(container)
+            if not data:
+                # Fallback: container was empty or didn't exist, try full page
+                print("     Conteneur vide/introuvable, fallback parse page complète")
+                full_soup = BeautifulSoup(page_html, 'html.parser')
+                data = parse_qa_from_container(full_soup)
+            if not data:
+                print(f"     [WARN] Aucune question trouvée (parsing échoué)")
             data = assign_ids(data)
-            combined.extend(data)
             out_file = derive_out_from_url(link['url'])
             out_file.parent.mkdir(parents=True, exist_ok=True)
             with open(out_file, 'w', encoding='utf-8') as f:
                 json.dump(data, f, ensure_ascii=False, indent=2)
             print(f"     Écrit {len(data)} questions dans {out_file}")
             written += 1
-        if combined:
-            combined = assign_ids(combined)
-            combined_out.parent.mkdir(parents=True, exist_ok=True)
-            with open(combined_out, 'w', encoding='utf-8') as f:
-                json.dump(combined, f, ensure_ascii=False, indent=2)
-            print(f"Fichier combiné: {combined_out} ({len(combined)} questions)")
         print(f"Terminé: {written} fichiers écrits.")
         return 0
 
@@ -239,11 +250,13 @@ def main():
     data = parse_qa_from_container(container) if container else []
     if not data:
         # Fallback: try parsing entire document
-        from bs4 import BeautifulSoup
         soup = BeautifulSoup(html, 'html.parser')
         try:
             print("Fallback: parse page-level content")
-            print(f"Page debug: strong={len(soup.find_all('strong'))}, ul={len(soup.find_all('ul'))}, correct_li={len(soup.find_all('li', class_='correct_answer'))}")
+            strong_count = len(soup.find_all('strong'))
+            ul_count = len(soup.find_all('ul'))
+            corr_count = len(soup.find_all('li', class_='correct_answer'))
+            print(f"Page debug: strong={strong_count}, ul={ul_count}, correct_li={corr_count}")
         except Exception:
             pass
         data = parse_qa_from_container(soup)
